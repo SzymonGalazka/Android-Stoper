@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FFA726</color>
+    <color name="colorPrimaryDark">#EF6C00</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="orange1">#FFE0B2</color>
+    <color name="orange2">#FFCC80</color>
+    <color name="orange3">#FFB74D</color>
+    <color name="orange4">#FFA726</color>
+    <color name="orange5">#FF9800</color>
+    <color name="orange6">#FB8C00</color>
+    <color name="orange7">#F57C00</color>
+    <color name="orange8">#EF6C00</color>
+</resources>
