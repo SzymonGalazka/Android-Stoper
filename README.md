@@ -1,6 +1,7 @@
 # Android Timer
 Android timer is a simple android application written to get familiar with Android Studio and it's workflow.
-##Features
+
+## Features
 You can either start, pause or stop the timer.
 
 Timer is rotation-proof and pauses when you switch between applications.
