@@ -9,17 +9,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.view.View;
 
+import org.w3c.dom.Text;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class StopwatchActivity extends AppCompatActivity {
 
-    private int miliseconds = 0;
+    private int miliseconds=0;
     private boolean running;
     private boolean wasrunning;
+    private String currentTime;
+    private ArrayList<String> laps = new ArrayList<String>();
+
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState){
         savedInstanceState.putInt("miliseconds", miliseconds);
         savedInstanceState.putBoolean("running",running);
         savedInstanceState.putBoolean("wasrunning",wasrunning);
+        savedInstanceState.putStringArrayList("laps",laps);
     }
 
     @Override
@@ -35,6 +44,7 @@ public class StopwatchActivity extends AppCompatActivity {
         if(wasrunning)
         running = true;
         animateOrange();
+        showLaps();
     }
 
     @Override
@@ -47,6 +57,7 @@ public class StopwatchActivity extends AppCompatActivity {
             miliseconds = savedInstanceState.getInt("miliseconds");
             running = savedInstanceState.getBoolean("running");
             wasrunning = savedInstanceState.getBoolean("wasrunning");
+            laps = savedInstanceState.getStringArrayList("laps");
         }
     }
 
@@ -64,7 +75,28 @@ public class StopwatchActivity extends AppCompatActivity {
         running = false;
         miliseconds = 0;
         animateOrange();
+        laps.clear();
+        showLaps();
     }
+
+    public void onClickLap(View view){
+        if(running) {
+            laps.add(currentTime);
+            showLaps();
+        }
+    }
+
+    private void showLaps(){
+        final TextView lapView = (TextView)findViewById(R.id.lap_view);
+        String lapList = new String();
+        int i=1;
+        for (String x : laps){
+            lapList += i+".    "+x+"\n";
+            i++;
+        }
+        lapView.setText(lapList);
+    }
+
     private void animateOrange() {
         ImageView orange = (ImageView) findViewById(R.id.orange_logo);
         Animation spin = new RotateAnimation(0.0f,360.0f,
@@ -81,7 +113,7 @@ public class StopwatchActivity extends AppCompatActivity {
         //orange.setColorFilter(R.color.orange3);
     }
 
-    private void runTimer() {
+    void runTimer() {
         final TextView timeView = (TextView)findViewById(R.id.time_view);
         final Handler handler = new Handler();
         handler.post(new Runnable() {
@@ -95,12 +127,15 @@ public class StopwatchActivity extends AppCompatActivity {
                 if(miliseconds>216000) time = String.format("%02d:%02d:%02d:%d",hours, minutes, seconds, milis);
                 else time = String.format("%02d:%02d:%02d", minutes, seconds, milis);
                 timeView.setText(time);
+                currentTime = time;
                 if (running){
                     miliseconds++;
                 }
+
                 handler.postDelayed(this, 1);
             }
         });
+
     }
 
 }
