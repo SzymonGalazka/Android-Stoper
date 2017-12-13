@@ -14,7 +14,7 @@ Android timer is a simple android application written to get familiar with Andro
 
 +Sexy orange visuals
 
-![alt text](https://i.imgur.com/cC9JXRR.png)
+![AndroidTimer1.1](https://i.imgur.com/cC9JXRR.png | width=300)
 
 ## Features(old)
 You can either start, pause or stop the timer.
@@ -23,4 +23,4 @@ Timer is rotation-proof and pauses when you switch between applications.
 
 It has a fancy animation when you hit play!
 
-![alt text](https://i.imgur.com/h07fAt4.png)
+![AndroidTimer1.0](https://i.imgur.com/h07fAt4.png | width=300)
