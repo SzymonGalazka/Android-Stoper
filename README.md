@@ -3,11 +3,17 @@ Android timer is a simple android application written to get familiar with Andro
 
 ## Features ver 1.1
 +Added Lap Functionality! (as scrolling list)
+
 +Layout rebuilt from RelativeLayout to GridLayout
+
 +4 buttons: start, pause, erase, lap time
+
 +Works better on bigger screens
+
 +Data is rotation-proof (rotating or minimizing the app will not erase your scores)  
+
 +Sexy orange visuals
+
 ![alt text](https://i.imgur.com/cC9JXRR.png)
 
 ## Features(old)
